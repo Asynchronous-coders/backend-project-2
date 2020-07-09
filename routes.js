@@ -1,5 +1,5 @@
-const controller = require('./controllers/controls');
+const cocktail = require('./controllers/cocktail-controler');
 
 exports.route = (app) => {
-    app.get('/status',controller.status);
+    app.get('/status',cocktail.status);
 }

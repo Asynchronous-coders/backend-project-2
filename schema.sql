@@ -26,3 +26,7 @@ create table reviews
 		foreign key (user_id) references users (id)
 			on update cascade on delete cascade
 );
+
+--Juan 7/9/2020
+INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Bill', 'Nye', 'scienceguy');
+INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Sam', 'Williams', 'soccerman');

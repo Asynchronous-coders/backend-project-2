@@ -6,3 +6,8 @@ exports.read = async (req, res) => {
     await user.getUserById(id);
     res.json(user.getLiteral());
 }
+exports.newUser = async (req, res) => {
+    const user = new User(req.body);
+    await user.newUser();
+    res.json(user.getLiteral());
+}

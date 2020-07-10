@@ -33,7 +33,10 @@ class User {
     async getUserById(id) {
         this._user = await userModel.selectById(id);
     }
-
+    async newUser(){
+        const results = await userModel.newUser(this._user);
+        this._user.id = results.insertId;
+    }
 
 }
 

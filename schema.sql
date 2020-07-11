@@ -27,6 +27,19 @@ create table reviews
 			on update cascade on delete cascade
 );
 
+CREATE TABLE cocktails(
+	id INT NOT NULL AUTO_INCREMENT,
+	cocktail_name VARCHAR(100) NOT NULL,
+	ingredients VARCHAR(500) NOT NULL,
+	directions VARCHAR(500) NOT NULL,
+	review_id INT NOT NULL,
+	CONSTRAINT cocktails_pk
+	PRIMARY KEY (id),
+	CONSTRAINT review_id_fk
+	FOREIGN KEY (review_id) REFERENCES reviews (id)
+	ON UPDATE cascade ON DELETE cascade 
+);
+
 --Juan 7/9/2020
 INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Bill', 'Nye', 'scienceguy');
 INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Sam', 'Williams', 'soccerman');

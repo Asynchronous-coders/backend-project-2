@@ -28,12 +28,7 @@ class Review {
     set user_id(user_id){
         this._review.user_id = user_id;
     }
-    get user_id(){
-        return this._review.user_id;
-    }
-    set user_id(user_id){
-        this._review.user_id = user_id;
-    }
+
     get cocktail_id(){
         return this._review.cocktail_id;
     }
@@ -46,15 +41,22 @@ class Review {
         return this._review;
     }
     getRating(){
-        return this._review.rate_cocktail;
+        return this._review[0].rate_cocktail;
     }
     getReview(){
-        return this._review.review_cocktail;
+        return this._review[0].review_cocktail;
     }
 
     async getByReviewId(id){
         this._review = await reviewModel.getByReviewId(id);
     }
-
-
+    async newRating() {
+        const results = await reviewModel.newRating(this._review);
+        this._review.id = results.insertId;
+    }
+    async newReview() {
+        const results = await reviewModel.newReview(this._review);
+        this._review.id = results.insertId;
+    }
 }
+module.exports = Review;

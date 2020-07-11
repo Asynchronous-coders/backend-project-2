@@ -1,24 +1,24 @@
 const Review = require('../classes/review');
 
-exports.readRating = (req, res) => {
+exports.readRating = async (req, res) => {
     const id = req.params.id;
     const review = new Review();
     await review.getByReviewId(id);
     res.json(review.getRating());    
 }
-exports.readReview = (req, res) => {
+exports.readReview = async (req, res) => {
     const id = req.params.id;
     const review = new Review();
     await review.getByReviewId(id);
     res.json(review.getReview());   
 }
-exports.newRating = (req, res) => {
+exports.newRating = async (req, res) => {
     const review = new Review(req.body);
     await review.newRating();
-    res.json(review.getLiteral());    
+    res.json(review.getRating());    
 }
-exports.newReview = (req, res) => {
+exports.newReview = async (req, res) => {
     const review = new Review(req.body);
     await review.newReview();
-    res.json(review.getLiteral());    
+    res.json(review.getReview());    
 }

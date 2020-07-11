@@ -7,9 +7,9 @@ exports.route = (app) => {
     app.get('/user/:id', user.read);
     app.post('/user', user.newUser);
 
-    app.get('/rating', reviews.readRating);
-    app.get('/reviews', reviews.readReviews);
+    app.get('/rating/:id', reviews.readRating);
+    app.get('/review/:id', reviews.readReview);
 
     app.post('/rating', reviews.newRating);
-    app.post('/reviews', reviews.newReview);
+    app.post('/review', reviews.newReview);
 }

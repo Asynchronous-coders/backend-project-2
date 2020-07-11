@@ -9,4 +9,10 @@ exports.route = (app) => {
     
     app.get('/user/:id', user.read);
     app.post('/user', user.newUser);
+
+    app.get('/rating', reviews.readRating);
+    app.get('/reviews', reviews.readReviews);
+
+    app.post('/rating', reviews.newRating);
+    app.post('/reviews', reviews.newReview);
 }

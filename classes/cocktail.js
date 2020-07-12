@@ -10,11 +10,11 @@ class Cocktail {
     }
 
     get cocktail_name() {
-        return this._cocktail.name;
+        return this._cocktail.cocktail_name;
     }
 
     set cocktail_name(cocktail_name) {
-        this._cocktail.name = cocktail_name;
+        this._cocktail.cocktail_name = cocktail_name;
     }
 
     get ingredients() {
@@ -33,12 +33,17 @@ class Cocktail {
         this._cocktail.directions = directions;
     }
 
-    getLiteral() {
-        return this._cocktail;
-    }
-
     async cocktailByName(name) {
         this._cocktail = await cocktailModel.cocktailByName(name);
+    }
+
+    async newCocktail() {
+        const results = await cocktailModel.insert(this._cocktail);
+        this._cocktail.id = results.insertId; 
+    }
+
+    getLiteral() {
+        return this._cocktail;
     }
 }
 

@@ -44,5 +44,7 @@ CREATE TABLE cocktails(
 INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Bill', 'Nye', 'scienceguy');
 INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Sam', 'Williams', 'soccerman');
 
---TESTING Sam 7/11/2020
+--INSERT MANUALLY TESTING GET Sam 7/11/2020
 INSERT INTO cocktails (cocktail_name, ingredients, directions) VALUES ('water', 'water ice', 'add ice then water');
+--TESTING POST ENDPOINT Sam 7/12/2020
+INSERT INTO cocktails (cocktail_name, ingredients, directions) VALUES ('soda', 'your favorite soda and ice', 'pour over ice');

@@ -12,13 +12,22 @@ exports.readReview = async (req, res) => {
     await review.getByReviewId(id);
     res.json(review.getReview());   
 }
-exports.newRating = async (req, res) => {
-    const review = new Review(req.body);
-    await review.newRating();
-    res.json(review.getRating());    
+exports.readAllReviews = async (req, res) => {
+    const review = new Review();
+    await review.getAllReviews();
+    res.json(review.getLiteral());   
 }
-exports.newReview = async (req, res) => {
+
+exports.newReviewRating = async (req, res) => {
     const review = new Review(req.body);
-    await review.newReview();
-    res.json(review.getReview());    
+    await review.newReviewRating();
+    res.json(review.getLiteral());
+}
+
+exports.updateReviews = async (req, res) => {
+    const id = req.params.id;
+    const review = new Review();
+    review.merge(req.body);
+    await review.updateReviews(id);
+    res.json(review.getLiteral());
 }

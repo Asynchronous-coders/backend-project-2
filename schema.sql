@@ -49,6 +49,12 @@ INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('S
 INSERT INTO cocktails (cocktail_name, ingredients, directions) VALUES ('water', 'water ice', 'add ice then water');
 --TESTING POST ENDPOINT Sam 7/12/2020
 INSERT INTO cocktails (cocktail_name, ingredients, directions) VALUES ('soda', 'your favorite soda and ice', 'pour over ice');
+
+
 /* Juan 7/11/20 */
 alter table reviews
 	add cocktail_id int null;
+
+/* Adding testing values to reviews Juan 7/13/20 */
+INSERT INTO corona_cocktaildb.reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (6, 'Tastes like a brisk mid-october morning.', 1, null);
+INSERT INTO corona_cocktaildb.reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (4, 'Extremely bitter, like the sub from Chem 101 Freshman year', 1, null)

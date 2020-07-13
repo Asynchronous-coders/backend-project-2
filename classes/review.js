@@ -36,7 +36,9 @@ class Review {
         this._review.cocktail_id = cocktail_id;
     }
 
-
+    merge(new_review) {
+        this._review = ({...this._review, ...new_review});
+    }
     getLiteral(){
         return this._review;
     }
@@ -47,16 +49,20 @@ class Review {
         return this._review[0].review_cocktail;
     }
 
+    async getAllReviews(){
+        this._review = await reviewModel.getAllReviews();
+    }
     async getByReviewId(id){
         this._review = await reviewModel.getByReviewId(id);
     }
-    async newRating() {
-        const results = await reviewModel.newRating(this._review);
+
+    async newReviewRating() {
+        const results = await reviewModel.newReviewRating(this._review);
         this._review.id = results.insertId;
     }
-    async newReview() {
-        const results = await reviewModel.newReview(this._review);
-        this._review.id = results.insertId;
+
+    async updateReviews(id) {
+        await reviewModel.updateReviews(id, this._review);
     }
 }
 module.exports = Review;

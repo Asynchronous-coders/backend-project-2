@@ -5,6 +5,11 @@ exports.getByReviewId = async (id) => {
     const [data] = await connection.query(`SELECT * FROM reviews WHERE id = ?;`, id);
     return data;
 }
+exports.getAllByCocktailId = async (cocktail_id) => {
+    const connection = await mysql.connect();
+    const [data] = await connection.query(`SELECT * FROM cocktails INNER JOIN reviews review on cocktails.id = review.cocktail_id WHERE cocktail_id = ?;`, cocktail_id);
+    return data;
+}
 exports.getAllReviews = async () => {
     const connection = await mysql.connect();
     const [data] = await connection.query(`SELECT * FROM reviews;`);

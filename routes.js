@@ -13,6 +13,7 @@ exports.route = (app) => {
     app.get('/rating/:id', reviews.readRating);
     app.get('/review/:id', reviews.readReview);
     app.get('/reviews', reviews.readAllReviews);
+    app.get('/reviews/cocktail/:id', reviews.getAllByCocktailId);
 
     app.post('/reviews', reviews.newReviewRating);
 

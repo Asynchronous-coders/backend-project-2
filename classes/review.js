@@ -55,6 +55,9 @@ class Review {
     async getByReviewId(id){
         this._review = await reviewModel.getByReviewId(id);
     }
+    async getAllByCocktailId(cocktail_id){
+        this._review = await reviewModel.getAllByCocktailId(cocktail_id);
+    }
 
     async newReviewRating() {
         const results = await reviewModel.newReviewRating(this._review);

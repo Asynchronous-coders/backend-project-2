@@ -45,9 +45,9 @@ INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('B
 /* Logan 7/9/20 */
 INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Sam', 'Williams', 'soccerman');
 
---INSERT MANUALLY TESTING GET Sam 7/11/2020
+/* INSERT MANUALLY TESTING GET Sam 7/11/2020 */
 INSERT INTO cocktails (cocktail_name, ingredients, directions) VALUES ('water', 'water ice', 'add ice then water');
---TESTING POST ENDPOINT Sam 7/12/2020
+/* TESTING POST ENDPOINT Sam 7/12/2020 */
 INSERT INTO cocktails (cocktail_name, ingredients, directions) VALUES ('soda', 'your favorite soda and ice', 'pour over ice');
 
 
@@ -56,5 +56,11 @@ alter table reviews
 	add cocktail_id int null;
 
 /* Adding testing values to reviews Juan 7/13/20 */
-INSERT INTO corona_cocktaildb.reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (6, 'Tastes like a brisk mid-october morning.', 1, null);
-INSERT INTO corona_cocktaildb.reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (4, 'Extremely bitter, like the sub from Chem 101 Freshman year', 1, null)
+INSERT INTO corona_cocktaildb.reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (6, 'Tastes like a brisk mid-october morning.', 1, 1);
+INSERT INTO corona_cocktaildb.reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (4, 'Extremely bitter, like the sub from Chem 101 Freshman year', 1, 1);
+
+/* added foreign key to be able to fetch join data */
+alter table reviews
+	add constraint reviews_cocktails__fk
+		foreign key (cocktail_id) references cocktails (id)
+			on update cascade on delete cascade;

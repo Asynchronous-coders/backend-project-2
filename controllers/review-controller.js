@@ -12,6 +12,12 @@ exports.readReview = async (req, res) => {
     await review.getByReviewId(id);
     res.json(review.getReview());   
 }
+exports.getAllByCocktailId = async (req, res) => {
+    const cocktail_id = req.params.id;
+    const review = new Review();
+    await review.getAllByCocktailId(cocktail_id);
+    res.json(review.getLiteral());
+}
 exports.readAllReviews = async (req, res) => {
     const review = new Review();
     await review.getAllReviews();

@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS corona_cocktaildb;
 CREATE DATABASE corona_cocktailDB;
 Use corona_cocktailDB;
 
-create table Users
+create table users
 (
 	id int auto_increment,
 	first_name VARCHAR(30) null,
@@ -41,9 +41,9 @@ CREATE TABLE cocktails(
 );
 
 /* Juan 7/9/20 */
-INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Bill', 'Nye', 'scienceguy');
+INSERT INTO users (first_name, last_name, password) VALUES ('Bill', 'Nye', 'scienceguy');
 /* Logan 7/9/20 */
-INSERT INTO corona_cocktaildb.users (first_name, last_name, password) VALUES ('Sam', 'Williams', 'soccerman');
+INSERT INTO users (first_name, last_name, password) VALUES ('Sam', 'Williams', 'soccerman');
 
 /* INSERT MANUALLY TESTING GET Sam 7/11/2020 */
 INSERT INTO cocktails (cocktail_name, ingredients, directions) VALUES ('water', 'water ice', 'add ice then water');
@@ -56,8 +56,8 @@ alter table reviews
 	add cocktail_id int null;
 
 /* Adding testing values to reviews Juan 7/13/20 */
-INSERT INTO corona_cocktaildb.reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (6, 'Tastes like a brisk mid-october morning.', 1, 1);
-INSERT INTO corona_cocktaildb.reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (4, 'Extremely bitter, like the sub from Chem 101 Freshman year', 1, 1);
+INSERT INTO reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (6, 'Tastes like a brisk mid-october morning.', 1, 1);
+INSERT INTO reviews (rate_cocktail, review_cocktail, user_id, cocktail_id) VALUES (4, 'Extremely bitter, like the sub from Chem 101 Freshman year', 1, 1);
 
 /* added foreign key to be able to fetch join data */
 alter table reviews

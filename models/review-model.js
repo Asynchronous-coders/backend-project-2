@@ -15,6 +15,11 @@ exports.getAllReviews = async () => {
     const [data] = await connection.query(`SELECT * FROM reviews;`);
     return data;
 }
+exports.getAverageRate = async (cocktail_id) => {
+    const connection = await mysql.connect();
+    const [data] = await connection.query(`SELECT AVG(rate_cocktail) AS 'average_rate' FROM reviews WHERE cocktail_id = ?;`, cocktail_id);
+    return data;
+}
 
 exports.newReviewRating = async (reviews_obj) => {
     const connection = await mysql.connect();
@@ -27,3 +32,4 @@ exports.updateReviews = async (id, reviews_obj) => {
     const [data] = await connection.query(`UPDATE reviews SET ? WHERE id = ?;`, [reviews_obj, id]);
     return data;
 }
+

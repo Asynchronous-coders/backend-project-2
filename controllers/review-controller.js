@@ -23,6 +23,12 @@ exports.readAllReviews = async (req, res) => {
     await review.getAllReviews();
     res.json(review.getLiteral());   
 }
+exports.readAverageRate = async (req,res) => {
+    const cocktail_id = req.params.id;
+    const review = new Review();
+    await review.getAverageRate(cocktail_id);
+    res.json(review.getLiteral());
+}
 
 exports.newReviewRating = async (req, res) => {
     const review = new Review(req.body);

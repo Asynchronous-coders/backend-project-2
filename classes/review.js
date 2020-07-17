@@ -14,6 +14,12 @@ class Review {
     set rate_cocktail(rate_cocktail){
         this._review.rate_cocktail = rate_cocktail;
     }
+    get average_rate(){
+        return this._review.average_rate;
+    }
+    set average_rate(average_rate){
+        this._review.average_rate = average_rate;
+    }
 
     get review_cocktail(){
         return this._review.review_cocktail;
@@ -57,6 +63,10 @@ class Review {
     }
     async getAllByCocktailId(cocktail_id){
         this._review = await reviewModel.getAllByCocktailId(cocktail_id);
+    }
+    async getAverageRate(cocktail_id){
+        this._review = await reviewModel.getAverageRate(cocktail_id);
+        console.log(this._review);
     }
 
     async newReviewRating() {

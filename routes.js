@@ -14,6 +14,7 @@ exports.route = (app) => {
     app.get('/review/:id', reviews.readReview);
     app.get('/reviews', reviews.readAllReviews);
     app.get('/reviews/cocktail/:id', reviews.getAllByCocktailId);
+    app.get('/review/average/:id', reviews.readAverageRate)
 
     app.post('/reviews', reviews.newReviewRating);
 

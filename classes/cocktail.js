@@ -9,11 +9,11 @@ class Cocktail {
         return this._cocktail.id;
     }
 
-    get cocktail_name() {
+    getcocktail_name() {
         return this._cocktail.cocktail_name;
     }
 
-    set cocktail_name(cocktail_name) {
+    setcocktail_name(cocktail_name) {
         this._cocktail.cocktail_name = cocktail_name;
     }
 

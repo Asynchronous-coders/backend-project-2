@@ -1,4 +1,4 @@
-const User = require('../classes/User');
+const User = require('../classes/user');
 
 test('Can create a new User', () => {
     const c = new User();

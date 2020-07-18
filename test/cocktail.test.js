@@ -1,6 +1,6 @@
-const Cocktail = require('../classes/Cocktail');
+const Cocktail = require('../classes/cocktail');
 
-test('Can create a new cocktail', () => {
+describe('Can create a new cocktail', () => {
     const c = new Cocktail();
     expect(typeof c).toBe('object');
 });

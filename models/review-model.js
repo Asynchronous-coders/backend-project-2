@@ -32,4 +32,9 @@ exports.updateReviews = async (id, reviews_obj) => {
     const [data] = await connection.query(`UPDATE reviews SET ? WHERE id = ?;`, [reviews_obj, id]);
     return data;
 }
+exports.deleteReviewById = async (id) => {
+    const connection = await mysql.connect();
+    const [data] = await connection.query(`DELETE FROM reviews WHERE id = ?`, [id]);
+    return data;
+}
 

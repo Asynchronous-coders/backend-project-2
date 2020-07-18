@@ -77,5 +77,9 @@ class Review {
     async updateReviews(id) {
         await reviewModel.updateReviews(id, this._review);
     }
+
+    async deleteReviewById(id) {
+        await reviewModel.deleteReviewById(id);
+    }
 }
 module.exports = Review;

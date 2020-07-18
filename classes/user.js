@@ -29,13 +29,22 @@ class User {
     getLiteral() {
         return this._user;
     }
+    merge(new_user) {
+        this._user = ({ ...this._user, ...new_user });
+    }
 
     async getUserById(id) {
         this._user = await userModel.selectById(id);
     }
-    async newUser(){
+    async newUser() {
         const results = await userModel.newUser(this._user);
         this._user.id = results.insertId;
+    }
+    async updateUserById(id) {
+        await userModel.updateUserById(id, this._user);
+    }
+    async deleteUserById(id) {
+        await userModel.deleteUserById(id);
     }
 
 }

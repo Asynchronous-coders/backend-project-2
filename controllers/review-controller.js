@@ -43,3 +43,9 @@ exports.updateReviews = async (req, res) => {
     await review.updateReviews(id);
     res.json(review.getLiteral());
 }
+exports.deleteReviewById = async (req,res) => {
+    const id = req.params.id;
+    const review = new Review();
+    await review.deleteReviewById(id);
+    res.json({deleted: true});
+}

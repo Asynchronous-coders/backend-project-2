@@ -6,9 +6,14 @@ const reviews = require('./controllers/review-controller');
 exports.route = (app) => {
     app.get('/cocktail/:name', cocktail.cocktailByName);
     app.post('/cocktail', cocktail.newCocktail);
-    
+    app.patch('/cocktail/:id', cocktail.updateCocktailById);
+    app.delete('/cocktail/:id', cocktail.deleteCocktailById);
+
+
     app.get('/user/:id', user.read);
     app.post('/user', user.newUser);
+    app.patch('/user/:id', user.updateUserById);
+    app.delete('/user/:id', user.deleteUserById);
 
     app.get('/rating/:id', reviews.readRating);
     app.get('/review/:id', reviews.readReview);
@@ -19,4 +24,5 @@ exports.route = (app) => {
     app.post('/reviews', reviews.newReviewRating);
 
     app.patch('/reviews/:id', reviews.updateReviews);
+    app.delete('/review/:id', reviews.deleteReviewById);
 }

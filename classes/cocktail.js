@@ -1,7 +1,7 @@
 const cocktailModel = require('../models/cocktail-model');
 
 class Cocktail {
-    constructor(cocktail_obj){
+    constructor(cocktail_obj) {
         this._cocktail = cocktail_obj;
     }
 
@@ -39,13 +39,13 @@ class Cocktail {
 
     async newCocktail() {
         const results = await cocktailModel.insert(this._cocktail);
-        this._cocktail.id = results.insertId; 
+        this._cocktail.id = results.insertId;
     }
-    
-    async updateCocktailById(id){
+
+    async updateCocktailById(id) {
         await cocktailModel.updateCocktailById(id, this._cocktail);
     }
-    
+
     async deleteCocktailById(id) {
         await cocktailModel.deleteCocktailById(id);
     }
@@ -53,8 +53,8 @@ class Cocktail {
     getLiteral() {
         return this._cocktail;
     }
-    merge(new_cocktail){
-        this._cocktail = ({...this._cocktail , ...new_cocktail});
+    merge(new_cocktail) {
+        this._cocktail = ({ ...this._cocktail, ...new_cocktail });
     }
 }
 

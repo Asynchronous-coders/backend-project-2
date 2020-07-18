@@ -11,3 +11,17 @@ exports.newUser = async (req, res) => {
     await user.newUser();
     res.json(user.getLiteral());
 }
+exports.updateUserById = async (req, res) => {
+    const id = req.params.id;
+    const user = new User();
+    user.merge(req.body);
+    await user.updateUserById(id);
+    res.json(user.getLiteral());
+}
+
+exports.deleteUserById = async (req, res) => {
+    const id = req.params.id;
+    const user = new User();
+    await user.deleteUserById(id);
+    res.json({ deleted: true });
+}

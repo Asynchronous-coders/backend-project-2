@@ -9,9 +9,11 @@ exports.route = (app) => {
     app.patch('/cocktail/:id', cocktail.updateCocktailById);
     app.delete('/cocktail/:id', cocktail.deleteCocktailById);
 
-    
+
     app.get('/user/:id', user.read);
     app.post('/user', user.newUser);
+    app.patch('/user/:id', user.updateUserById);
+    app.delete('/user/:id', user.deleteUserById);
 
     app.get('/rating/:id', reviews.readRating);
     app.get('/review/:id', reviews.readReview);

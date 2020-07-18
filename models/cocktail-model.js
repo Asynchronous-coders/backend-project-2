@@ -12,9 +12,9 @@ exports.insert = async (cocktail_obj) => {
     return data;
 }
 
-exports.updateCocktailById = async (id,cocktail_obj) => {
+exports.updateCocktailById = async (id, cocktail_obj) => {
     const connection = await mysql.connect();
-    const [data] = await connection.query(`UPDATE cocktails WHERE id = ?`,[id, cocktail_obj]);
+    const [data] = await connection.query(`UPDATE cocktails SET ? WHERE id = ?`, [cocktail_obj, id]);
     return data;
 }
 

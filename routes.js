@@ -19,4 +19,5 @@ exports.route = (app) => {
     app.post('/reviews', reviews.newReviewRating);
 
     app.patch('/reviews/:id', reviews.updateReviews);
+    app.delete('/review/:id', reviews.deleteReviewById);
 }

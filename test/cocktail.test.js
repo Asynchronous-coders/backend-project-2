@@ -1,4 +1,4 @@
-const Cocktail = require('../classes/cocktail');
+const Cocktail = require('../classes/Cocktail');
 
 test('Can create a new cocktail', () => {
     const c = new Cocktail();

@@ -11,3 +11,15 @@ exports.insert = async (cocktail_obj) => {
     const [data] = await connection.query(`INSERT INTO cocktails SET ?`, cocktail_obj);
     return data;
 }
+
+exports.updateCocktailById = async (id,cocktail_obj) => {
+    const connection = await mysql.connect();
+    const [data] = await connection.query(`UPDATE cocktails WHERE id = ?`,[id, cocktail_obj]);
+    return data;
+}
+
+exports.deleteCocktailById = async (id) => {
+    const connection = await mysql.connect();
+    const [data] = await connection.query(`DELETE FROM cocktails WHERE id = ?`, id);
+    return data;
+}

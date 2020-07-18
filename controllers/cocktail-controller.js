@@ -12,3 +12,17 @@ exports.newCocktail = async (req, res) => {
     await cocktail.newCocktail();
     res.json(cocktail.getLiteral());
 }  
+
+exports.updateCocktailById = async (req,res) => {
+    const id = req.params.id;
+    const cocktail = new Cocktail();
+    cocktail.merge(req.body);
+    await cocktail.updateCocktailById(id);
+    res.json(cocktail.getLiteral());
+}
+exports.deleteCocktailById = async (req,res) => {
+    const id = req.params.id;
+    const cocktail = new Cocktail();
+    await cocktail.deleteCocktailById(id);
+    res.json({deleted: true});
+}

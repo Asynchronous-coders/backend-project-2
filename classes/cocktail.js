@@ -41,9 +41,20 @@ class Cocktail {
         const results = await cocktailModel.insert(this._cocktail);
         this._cocktail.id = results.insertId; 
     }
+    
+    async updateCocktailById(id){
+        await cocktailModel.updateCocktailById(id, this._cocktail);
+    }
+    
+    async deleteCocktailById(id) {
+        await cocktailModel.deleteCocktailById(id);
+    }
 
     getLiteral() {
         return this._cocktail;
+    }
+    merge(new_cocktail){
+        this._cocktail = ({...this._cocktail , ...new_cocktail});
     }
 }
 

@@ -6,6 +6,9 @@ const reviews = require('./controllers/review-controller');
 exports.route = (app) => {
     app.get('/cocktail/:name', cocktail.cocktailByName);
     app.post('/cocktail', cocktail.newCocktail);
+    app.patch('/cocktail/:id', cocktail.updateCocktailById);
+    app.delete('/cocktail/:id', cocktail.deleteCocktailById);
+
     
     app.get('/user/:id', user.read);
     app.post('/user', user.newUser);

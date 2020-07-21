@@ -5,7 +5,7 @@ class Cocktail {
         this._cocktail = cocktail_obj;
     }
     get id() {
-        return this._cocktail.id ;
+        return this._cocktail.id;
     }
     get cocktail_name() {
         return this._cocktail.cocktail_name;

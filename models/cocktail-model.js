@@ -1,7 +1,7 @@
 const mysql = require('./connection');
 exports.getCocktailById = async (id) => {
     const connection = await mysql.connect();
-    const [data] = await connection.query(`SELECT * FROM cocktails WHERE id = ?` , id)
+    const [data] = await connection.query(`SELECT * FROM cocktails WHERE id = ?;`, id)
     return data;
 }
 exports.cocktailByName = async (cocktail_name) => {

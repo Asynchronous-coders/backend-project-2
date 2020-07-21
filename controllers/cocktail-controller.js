@@ -1,5 +1,10 @@
 const Cocktail = require('../classes/cocktail');
-
+exports.getCocktailById = async (req, res) => {
+    const id = req.params.id;
+    const cocktail = new Cocktail;
+    await cocktail.getCocktailById(id);
+    res.json(cocktail.getLiteral());
+}
 exports.cocktailByName = async (req, res) => {
     const name =  req.params.name;
     const cocktail = new Cocktail;

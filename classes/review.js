@@ -7,7 +7,6 @@ class Review {
     get id(){
         return this._review.id;
     }
-
     get rate_cocktail(){
         return this._review.rate_cocktail;
     }

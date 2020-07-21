@@ -1,5 +1,4 @@
 const mysql = require('./connection');
-
 exports.getByReviewId = async (id) => {
     const connection = await mysql.connect();
     const [data] = await connection.query(`SELECT * FROM reviews WHERE id = ?;`, id);

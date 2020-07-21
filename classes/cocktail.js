@@ -4,11 +4,9 @@ class Cocktail {
     constructor(cocktail_obj) {
         this._cocktail = cocktail_obj;
     }
-
     get id() {
-        return this._cocktail.id;
+        return this._cocktail.id ;
     }
-
     get cocktail_name() {
         return this._cocktail.cocktail_name;
     }
@@ -32,7 +30,9 @@ class Cocktail {
     set directions(directions) {
         this._cocktail.directions = directions;
     }
-
+    async getCocktailById(id){
+        this._cocktail = await cocktailModel.getCocktailById(id);
+    }
     async cocktailByName(name) {
         this._cocktail = await cocktailModel.cocktailByName(name);
     }
@@ -49,7 +49,6 @@ class Cocktail {
     async deleteCocktailById(id) {
         await cocktailModel.deleteCocktailById(id);
     }
-
     getLiteral() {
         return this._cocktail;
     }

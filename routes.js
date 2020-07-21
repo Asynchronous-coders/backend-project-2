@@ -4,6 +4,7 @@ const reviews = require('./controllers/review-controller');
 
 
 exports.route = (app) => {
+    app.get('/cocktail/:id', cocktail.getCocktailById)
     app.get('/cocktail/:name', cocktail.cocktailByName);
     app.post('/cocktail', cocktail.newCocktail);
     app.patch('/cocktail/:id', cocktail.updateCocktailById);
